@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Header Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <header class="header">
+    <div class="logo">   <nav>
+    <a href="Enkha.html">GOBI Cashmere</a>
+  </nav></div>
+    <nav class="nav">
+      <a href="Эм.html">Эмэгтэй</a>
+      <a href="intro.html">Эрэгтэй</a>
+      <a href="#">Үйлчилгээ</a>
+      <a href="#">Холбоо барих</a>
+      <a href="Бүртгэл.html">Бүртгэл</a>
+    </nav>
+  </header>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: linear-gradient(90deg, #fffffc, #ffffff);
+  color: rgb(0, 0, 0);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: 16px;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: rgb(132, 0, 0);
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+  </style>
+
+</body>
+</html>

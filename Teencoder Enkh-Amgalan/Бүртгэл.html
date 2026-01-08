@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <header class="header">
+
+    <nav class="nav">
+      <a href="Enkha.html">GOBI</a>
+      </nav>
+  </header>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #FBCFE8, #F9A8D4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      width: 320px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #BE185D;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .login-box input:focus {
+      outline: none;
+      border-color: #EC4899;
+      box-shadow: 0 0 0 3px rgba(236,72,153,0.2);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      background: linear-gradient(90deg, #EC4899, #DB2777);
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(236,72,153,0.4);
+    }
+
+    #message {
+      margin-top: 12px;
+      font-weight: bold;
+      color: #BE185D;
+    }
+
+    .login-box a {
+      color: #DB2777;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <body>
+
+<div class="login-box">
+  <h2>Нэвтрэх</h2>
+  <input type="text" id="Имэйл хаяг" placeholder="Имэйл хаяг">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Нэвтрэх</button>
+  <p id="message"></p>
+  <p>Бүртгэлгүй юу? <a href="register.html">Бүртгүүлэх</a></p>
+     <div class="password-box">
+  <span class="show-btn" onclick="togglePass()">SHOW</span>
+  <script>
+  function togglePass() {
+    const pass = document.getElementById("password");
+    const btn = document.querySelector(".show-btn");
+
+    if (pass.type === "password") {
+      pass.type = "text";
+      btn.textContent = "HIDE";
+    } else {
+      pass.type = "password";
+      btn.textContent = "SHOW";
+    }
+  }
+</script>
+
+</div>
+</div>
+</script>
+</body>
+</html>
