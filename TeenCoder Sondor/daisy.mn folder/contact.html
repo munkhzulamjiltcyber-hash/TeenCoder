@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холбоо барих | Daisy.mn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary-red: #a31621;
+            --soft-pink: #fffafa;
+            --text-dark: #2d2d2d;
+            --text-gray: #777;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--soft-pink);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contact-container {
+            background: white;
+            max-width: 900px;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* --- Sidebar Info --- */
+        .contact-info {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .contact-info p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            font-size: 18px;
+        }
+
+        /* --- Form Side --- */
+        .contact-form {
+            padding: 40px;
+            background: white;
+        }
+
+        .contact-form h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--primary-red);
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            background: #fdfdfd;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: var(--primary-red);
+        }
+
+        .send-btn {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .send-btn:hover {
+            background-color: #7d1018;
+            box-shadow: 0 5px 15px rgba(163, 22, 33, 0.2);
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 14px;
+        } 
+        .back-home:hover {
+            color: var(--primary-red);
+        }
+
+
+        /* Mobile Friendly */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="sondor.html" class="back-home"><i class="fa fa-arrow-left"></i>Буцах</a>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Холбоо барих</h2>
+            <p>Бидэнд асуух зүйл байгаа бол доорх сувгуудаар холбогдоорой. Бид танд туслахдаа баяртай байх болно.</p>
+            
+            <div class="info-item">
+                <i class="fa fa-phone"></i>
+                <span>+976 8888-9999</span>
+            </div>
+            <div class="info-item">
+                <i class="fa fa-envelope"></i>
+                <span>info@daisy.mn</span>
+            </div>
+            <div class="info-item">
+                <i class="fa fa-map-marker"></i>
+                <span>Улаанбаатар хот, Сүхбаатар дүүрэг</span>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Зурвас илгээх</h3>
+            <form>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Таны нэр</label>
+                        <input type="text" placeholder="Нэрээ оруулна уу" required>
+                    </div>
+                    <div class="input-group">
+                        <label>И-мэйл хаяг</label>
+                        <input type="email" placeholder="example@mail.com" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Гарчиг</label>
+                    <input type="text" placeholder="Зурвасын сэдэв">
+                </div>
+
+                <div class="input-group">
+                    <label>Зурвас</label>
+                    <textarea rows="5" placeholder="Таны асуулт эсвэл санал хүсэлт..."></textarea>
+                </div>
+
+                <button type="submit" class="send-btn">Зурвас илгээх</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

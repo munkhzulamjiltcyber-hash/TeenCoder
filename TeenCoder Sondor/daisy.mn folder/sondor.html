@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>daisy.mn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary-red: #a31621;
+            --soft-pink: #fffafa;
+            --text-dark: #2d2d2d;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+        }
+
+        header {
+            background-color: var(--soft-pink);
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            max-width: 500px; 
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-red);
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: white;
+            border: 1.5px solid var(--primary-red);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--primary-red);
+            font-weight: 500;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            border: 1px solid #eee;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            height: 2.4em;
+            overflow: hidden;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #999;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html">
+            <img src="daisy.png" alt="Daisy Logo" class="logo">
+        </a>
+
+        <div class="search-container">
+            <input type="text" id="flowerSearch" placeholder="Хайх утгаа оруулна уу..." onkeyup="searchFlowers()">
+            <button><i class="fa fa-search"></i></button>
+        </div>
+
+        <nav>
+            <a href="login.html" class="nav-btn">Нэвтрэх</a>
+            <a href="signup.html" class="nav-btn">Бүртгүүлэх</a>
+            <a href="contact.html" class="nav-btn">Холбоо барих</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="product-grid" id="productGrid">
+        <div class="card">
+            <img src="zurhen sarnai.png" alt="Flower">
+            <h2>Зүрхэн хэлбэрт оруулсан сарнай</h2>
+            <p>Сэтгэлээр дүүрэн цэцгийн баглаа, улаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮79'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+    <div class="card">
+            <img src="huvsgur ygan tsetsg.jpeg" alt="Flower">
+            <h2>Хөвсгөр утсаар хөвсөн цэцгийн баглаа</h2>
+            <p>Түлхүүр үг: Хөвсгөр цэцэг, төрсөн өдөр, ягаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮79'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="huvsgur tumrn utsar hsn tsetsgin bagla.png" alt="Flower">
+            <h2>Хөвсгөр төмөр утсаар хийсэн цэцэг</h2>
+            <p>Түлхүүр үг: Хөвсгөр цэцэг, төрсөн өдөр, улаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮29'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="tuuzn tsetseg.jpeg" alt="Flower">
+            <h2>Хуурамч боловч үзэсгэлэнтэй цэцгийн баглаа</h2>
+            <p>Түлхүүр үг: Туузан, сарнай, ойн баяр</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮59'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+ё
+        <div class="card">
+            <img src="huvsgur tumrn utsar hsn tsetsgin bagla.png" alt="Flower">
+            <h2>Хөвсгөр утсаар хөвсөн цэцгийн баглаа</h2>
+            <p>Сэтгэлээр дүүрэн цэцгийн баглаа, төрсөн өдөр</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮29'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+         <div class="card">
+            <img src="zurhen sarnai.png" alt="Flower">
+            <h2>Зүрхэн хэлбэрт оруулсан 100 сарнай</h2>
+            <p>Түлхүүр үг: ойн баяр, сарнай, улаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮79'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="huvsgur ygan tsetsg.jpeg" alt="Flower">
+            <h2>Хөвсгөр утсаар хөвсөн цэцгийн баглаа</h2>
+            <p>Түлхүүр үг: Хөвсгөр цэцэг, төрсөн өдөр, ягаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮79'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="huvsgur tumrn utsar hsn tsetsgin bagla.png" alt="Flower">
+            <h2>Хөвсгөр төмөр утсаар хийсэн цэцэг</h2>
+            <p>Түлхүүр үг: Хөвсгөр цэцэг, төрсөн өдөр, улаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮29'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="tuuzn tsetseg.jpeg" alt="Flower">
+            <h2>Хуурамч боловч үзэсгэлэнтэй цэцгийн баглаа</h2>
+            <p>Түлхүүр үг: Туузан, сарнай, ойн баяр</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮59'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="zurhen sarnai.png" alt="Flower">
+            <h2>Зүрхэн хэлбэрт оруулсан сарнай</h2>
+            <p>Сэтгэлээр дүүрэн цэцгийн баглаа, улаан</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮79'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+
+        <div class="card">
+            <img src="huvsgur tumrn utsar hsn tsetsgin bagla.png" alt="Flower">
+            <h2>Хөвсгөр утсаар хөвсөн цэцгийн баглаа</h2>
+            <p>Сэтгэлээр дүүрэн цэцгийн баглаа, төрсөн өдөр</p>
+            <div style="color: #b8860b; font-weight: bold; margin: 10px 0;">₮29'000</div>
+            <a href="#" class="buy-btn">🛒 Сагсанд нэмэх</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Daisy.mn | Аз Жаргалыг Бид Түгээнэ </p>
+</footer>
+
+<script>
+    function searchFlowers() {
+        var input = document.getElementById('flowerSearch');
+        var filter = input.value.toLowerCase();
+        var grid = document.getElementById('productGrid');
+        var cards = grid.getElementsByClassName('card');
+        for (var i = 0; i < cards.length; i++) {
+            var title = cards[i].getElementsByTagName('h2')[0].innerText;
+            var tags = cards[i].getElementsByTagName('p')[0].innerText;
+            if (title.toLowerCase().indexOf(filter) > -1 || tags.toLowerCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+                cards[i].style.opacity = "1";
+            } else {
+                cards[i].style.display = "none"; 
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

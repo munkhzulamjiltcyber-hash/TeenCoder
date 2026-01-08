@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html lang="mn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Нэвтрэх | Daisy.mn</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        :root {
+
+            --primary-red: #a31621;
+
+            --dark-red: #7d1018;
+
+            --bg-gradient: linear-gradient(135deg, #fffafa 0%, #fde2e4 100%);
+
+            --glass-white: rgba(255, 255, 255, 0.95);
+
+            --text-main: #2d3436;
+
+        }
+
+
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            font-family: 'Poppins', sans-serif;
+
+            background: var(--bg-gradient);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 100vh;
+
+        }
+
+
+
+        .main-wrapper {
+
+            width: 100%;
+
+            max-width: 420px;
+
+            padding: 20px;
+
+            animation: fadeIn 0.8s ease-out;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; transform: translateY(20px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+
+
+        .login-card {
+
+            background: var(--glass-white);
+
+            padding: 40px;
+
+            border-radius: 24px;
+
+            box-shadow: 0 20px 40px rgba(163, 22, 33, 0.1);
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+
+        .login-card h2 {
+
+            font-size: 28px;
+
+            color: var(--primary-red);
+
+            margin-bottom: 8px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+        }
+
+
+
+        .login-card p {
+
+            color: #636e72;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+
+            text-align: center;
+
+        }
+
+
+
+        /* Input Styles */
+
+        .input-group {
+
+            margin-bottom: 20px;
+
+            position: relative;
+
+        }
+
+
+
+        .input-group label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: var(--text-main);
+
+            margin-bottom: 8px;
+
+            margin-left: 4px;
+
+        }
+
+
+
+        .input-group input {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border-radius: 14px;
+
+            border: 2px solid #f1f2f6;
+
+            background: #f8f9fa;
+
+            font-size: 15px;
+
+            transition: all 0.3s;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        .input-group input:focus {
+
+            border-color: var(--primary-red);
+
+            background: #fff;
+
+            outline: none;
+
+            box-shadow: 0 4px 12px rgba(163, 22, 33, 0.08);
+
+        }
+
+
+
+        /* Button Styles */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 16px;
+
+            background: var(--primary-red);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: all 0.3s;
+
+            box-shadow: 0 8px 15px rgba(163, 22, 33, 0.2);
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .login-btn:hover {
+
+            background: var(--dark-red);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 12px 20px rgba(163, 22, 33, 0.3);
+
+        }
+
+
+
+        /* Social Login */
+
+        .separator {
+
+            display: flex;
+
+            align-items: center;
+
+            text-align: center;
+
+            margin: 20px 0;
+
+            color: #b2bec3;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+        .separator::before, .separator::after {
+
+            content: '';
+
+            flex: 1;
+
+            border-bottom: 1px solid #dfe6e9;
+
+        }
+
+        .separator span { padding: 0 10px; }
+
+
+
+        .social-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+
+
+        .social-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 14px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            transition: all 0.3s;
+
+            border: none;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        .btn-google {
+
+            background: white;
+
+            color: #555;
+
+            border: 1px solid #dfe6e9;
+
+        }
+
+        .btn-google:hover {
+
+            background: #f8f9fa;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+            transform: translateY(-1px);
+
+        }
+
+
+
+        .btn-facebook {
+
+            background: #1877f2;
+
+            color: white;
+
+        }
+
+        .btn-facebook:hover {
+
+            background: #166fe5;
+
+            box-shadow: 0 8px 15px rgba(24, 119, 242, 0.2);
+
+            transform: translateY(-1px);
+
+        }
+
+
+
+        .external-footer {
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            color: #636e72;
+
+        }
+
+
+
+        .external-footer a {
+
+            color: var(--primary-red);
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+
+        /* Password Toggle */
+
+        .toggle-icon {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 42px;
+
+            cursor: pointer;
+
+            color: #b2bec3;
+
+        }
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            color: var(--primary-red);
+        }
+        /* Утасны дугаар оруулах хэсгийн загвар */
+.phone-input-container {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 2px solid #f1f2f6;
+    border-radius: 14px;
+    padding: 0 16px;
+    transition: 0.3s;
+}
+
+.phone-input-container:focus-within {
+    border-color: var(--primary-red);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(163, 22, 33, 0.08);
+}
+
+.country-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 12px;
+    border-right: 1px solid #dfe6e9;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.country-code img {
+    width: 20px;
+    border-radius: 2px;
+}
+
+.phone-input-container input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 14px 10px !important;
+}
+
+    </style>
+
+</head>
+
+<body>
+ <a href="sondor.html" class="back-home"><i class="fa fa-arrow-left"></i> Буцах</a>
+
+
+    <div class="main-wrapper">
+
+        <div class="login-card">
+
+            <h2>Нэвтрэх</h2>
+
+            <p>Тавтай морилно уу! Daisy-д нэвтэрнэ үү</p>
+
+
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label>И-мэйл хаяг</label>
+
+                    <input type="email" placeholder="жишээ@mail.mn" required>
+
+                </div>
+
+
+<div class="input-group">
+    <label>Утасны дугаар</label>
+    <div class="phone-input-container">
+        <div class="country-code">
+            <img src="https://flagcdn.com/w20/mn.png" alt="Mongolia">
+            <span>+976</span>
+        </div>
+        <input type="tel" 
+               id="phoneInput" 
+               placeholder="Дугаараа оруулна уу" 
+               maxlength="8" 
+               inputmode="numeric">
+    </div>
+</div>
+
+
+
+                <div class="input-group">
+
+                    <label>Нууц үг</label>
+
+                    <input type="password" id="password" placeholder="••••••••" required>
+
+                    <i class="fa fa-eye toggle-icon" id="togglePassword"></i>
+
+                </div>
+
+
+
+                <button type="submit" class="login-btn">Нэвтрэх</button>
+
+
+
+                <div class="separator"><span>ЭСВЭЛ</span></div>
+
+
+
+                <div class="social-group">
+
+                    <button type="button" class="social-btn btn-google">
+
+                        <img src="https://www.google.com/favicon.ico" width="18"> &nbsp; Google-ээр нэвтрэх
+
+                    </button>
+
+                    <button type="button" class="social-btn btn-facebook">
+
+                        <i class="fa fa-facebook"></i> &nbsp; Facebook-ээр нэвтрэх
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <div class="external-footer">
+
+            Бүртгэлгүй юу? <a href="signup.html">Бүртгүүлэх хэсэг рүү</a>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        const togglePassword = document.querySelector('#togglePassword');
+
+        const password = document.querySelector('#password');
+
+
+
+        togglePassword.addEventListener('click', function () {
+
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+
+            password.setAttribute('type', type);
+
+            this.classList.toggle('fa-eye-slash');
+
+        });
+        const phoneInput = document.querySelector('#phoneInput');
+
+phoneInput.addEventListener('input', function(e) {
+    // Зөвхөн 0-9 хооронд тоог үлдээж, бусад бүх тэмдэгтийг устгана
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+    </script>
+
+</body>
+
+</html>
