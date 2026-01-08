@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>K-POP Cute Kawaii</title>
+
+<style>
+/* ===== GENERAL ===== */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ffb6f3,#b388ff);
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#ff69b4;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* ===== MAIN ===== */
+main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px 0;
+}
+
+/* HOME */
+.home-card{
+    background:linear-gradient(135deg,#ff85c1,#d5b3ff);
+    padding:30px;
+    border-radius:25px;
+    width:380px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(255,105,180,.4);
+    margin-bottom:30px;
+}
+
+.home-card h1{color:white;}
+.home-card p{color:white;}
+
+.idol-icons span{
+    font-size:26px;
+    margin:0 6px;
+    animation:float 2s infinite ease-in-out;
+}
+
+.idol-icons span:nth-child(2){animation-delay:.3s}
+.idol-icons span:nth-child(3){animation-delay:.6s}
+.idol-icons span:nth-child(4){animation-delay:.9s}
+
+.home-btn{
+    margin-top:15px;
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:#ff69b4;
+    color:white;
+    cursor:pointer;
+}
+
+/* LOGIN CARD */
+.card{
+    background:white;
+    width:350px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.tabs{
+    display:flex;
+    margin-bottom:20px;
+}
+
+.tabs button{
+    flex:1;
+    padding:10px;
+    border:none;
+    background:#eee;
+    cursor:pointer;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.tabs button.active{
+    background:#ff69b4;
+    color:white;
+}
+
+.form{display:none;}
+.form.active{display:block;}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.submit-btn{
+    width:100%;
+    padding:12px;
+    background:#ff69b4;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#ff69b4;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+
+/* animation */
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+    100%{transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">💖 K-POP World</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Idols</a>
+        <a href="#">Music</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <!-- HOME -->
+    <div class="home-card">
+        <h1>Welcome to K-POP World 💕</h1>
+        <p>Cute ✨ Kawaii 🌸 Dreamy vibes</p>
+
+        <div class="idol-icons">
+            <span>🎤</span>
+            <span>💿</span>
+            <span>🌸</span>
+            <span>💗</span>
+        </div>
+
+        <button class="home-btn">✨ Join the Fandom ✨</button>
+    </div>
+
+    <!-- LOGIN / REGISTER -->
+    <div class="card">
+        <div class="tabs">
+            <button id="loginTab" class="active">Нэвтрэх</button>
+            <button id="registerTab">Бүртгүүлэх</button>
+        </div>
+
+        <div id="loginForm" class="form active">
+            <input type="email" placeholder="Имэйл">
+            <input type="password" placeholder="Нууц үг">
+            <button class="submit-btn">Нэвтрэх</button>
+        </div>
+
+        <div id="registerForm" class="form">
+            <input type="text" placeholder="Нэр">
+            <input type="email" placeholder="Имэйл">
+            <input type="password" placeholder="Нууц үг">
+            <button class="submit-btn">Бүртгүүлэх</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 K-POP World 💗 All Rights Reserved
+</footer>
+
+<script>
+const loginTab=document.getElementById("loginTab");
+const registerTab=document.getElementById("registerTab");
+const loginForm=document.getElementById("loginForm");
+const registerForm=document.getElementById("registerForm");
+
+loginTab.onclick=()=>{
+    loginForm.classList.add("active");
+    registerForm.classList.remove("active");
+    loginTab.classList.add("active");
+    registerTab.classList.remove("active");
+}
+
+registerTab.onclick=()=>{
+    registerForm.classList.add("active");
+    loginForm.classList.remove("active");
+    registerTab.classList.add("active");
+    loginTab.classList.remove("active");
+}
+</script>
+
+</body>
+</html>

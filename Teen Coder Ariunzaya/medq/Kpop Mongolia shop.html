@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Yellow Shop</title>
+<style>
+:root{
+  --yellow-main:#FFC107;
+  --yellow-dark:#E0A800;
+  --yellow-soft:#FFF8E1;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--yellow-soft);
+}
+
+header{
+  background:var(--yellow-main);
+  padding:15px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.search-box input{
+  padding:8px 14px;
+  border-radius:20px;
+  border:1px solid var(--yellow-dark);
+  outline:none;
+}
+
+.cart-box{
+  position:relative;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.cart-count{
+  position:absolute;
+  top:-6px;
+  right:-10px;
+  background:white;
+  color:var(--yellow-dark);
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+  font-weight:bold;
+}
+
+.total-price{
+  margin-left:20px;
+  font-weight:bold;
+  font-size:16px;
+  color:#333;
+}
+
+.order-btn{
+  margin-left:20px;
+  padding:6px 12px;
+  border:none;
+  border-radius:6px;
+  background:#333;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.order-btn:hover{
+  background:#555;
+}
+
+/* ===== MAIN GRID ===== */
+main{
+  padding:40px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr); /* 3 багана */
+  gap:30px;
+  max-width:960px;
+  margin:auto;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  border-top:6px solid var(--yellow-main);
+  transition: transform 0.3s;
+}
+
+.card:hover{
+  transform: translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.price{
+  font-size:18px;
+  font-weight:bold;
+  color:var(--yellow-dark);
+}
+
+.add-btn{
+  background:var(--yellow-main);
+  border:none;
+  padding:10px;
+  width:100%;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+.add-btn:hover{
+  background:var(--yellow-dark);
+  color:white;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--yellow-dark);
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">𐔌՞. .՞𐦯 Teddy Shop</div>
+  <div class="search-box"><input type="text" placeholder="Хайх..."></div>
+  <div class="cart-box">
+    🛒 <span class="cart-count" id="cartCount">0</span>
+    <span class="total-price" id="totalPrice">₮0</span>
+    <button class="order-btn" id="orderBtn">Захиалах</button>
+  </div>
+</header>
+
+<main>
+  <div class="products">
+
+    <!-- ===== 1-р мөр ===== -->
+    <div class="card" data-price="25000" data-name="Бараа 1">
+      <img src="img1.jpg" alt="Бараа 1">
+      <h3>Бараа 1</h3>
+      <p class="price">25,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="30000" data-name="Бараа 2">
+      <img src="img1.jpg" alt="Бараа 2">
+      <h3>Бараа 2</h3>
+      <p class="price">30,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="28000" data-name="Бараа 3">
+      <img src="img1.jpg" alt="Бараа 3">
+      <h3>Бараа 3</h3>
+      <p class="price">28,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+
+    <!-- ===== 2-р мөр ===== -->
+    <div class="card" data-price="32000" data-name="Бараа 4">
+      <img src="img1.jpg" alt="Бараа 4">
+      <h3>Бараа 4</h3>
+      <p class="price">32,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="27000" data-name="Бараа 5">
+      <img src="img1.jpg" alt="Бараа 5">
+      <h3>Бараа 5</h3>
+      <p class="price">27,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="35000" data-name="Бараа 6">
+      <img src="img1.jpg" alt="Бараа 6">
+      <h3>Бараа 6</h3>
+      <p class="price">35,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+
+    <!-- ===== 3-р мөр ===== -->
+    <div class="card" data-price="26000" data-name="Бараа 7">
+      <img src="img1.jpg" alt="Бараа 7">
+      <h3>Бараа 7</h3>
+      <p class="price">26,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="29000" data-name="Бараа 8">
+      <img src="img1.jpg" alt="Бараа 8">
+      <h3>Бараа 8</h3>
+      <p class="price">29,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="31000" data-name="Бараа 9">
+      <img src="img1.jpg" alt="Бараа 9">
+      <h3>Бараа 9</h3>
+      <p class="price">31,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+
+    <!-- ===== 4-р мөр ===== -->
+    <div class="card" data-price="33000" data-name="Dress pink">
+      <img src="img1.jpg" alt="Бараа 10">
+      <h3>Бараа 10</h3>
+      <p class="price">33,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="24000" data-name="Hyufgvuye">
+      <img src="img1.jpg" alt="Бараа 11">
+      <h3>Бараа 11</h3>
+      <p class="price">24,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+    <div class="card" data-price="36000" data-name="Бараа 12">
+      <img src="img1.jpg" alt="Бараа 12">
+      <h3>Бараа 12</h3>
+      <p class="price">36,000₮</p>
+      <button class="add-btn">Сагсанд нэмэх</button>
+    </div>
+
+  </div>
+</main>
+
+<footer>© 2026 Teddy Shop</footer>
+
+<script>
+let cartItems = [];
+let total = 0;
+
+const cartCount = document.getElementById("cartCount");
+const totalPrice = document.getElementById("totalPrice");
+const orderBtn = document.getElementById("orderBtn");
+
+// Сагсанд нэмэх товч
+document.querySelectorAll(".add-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const card = btn.closest(".card");
+    const price = parseInt(card.dataset.price);
+    const name = card.dataset.name;
+    cartItems.push({name, price});
+    total += price;
+    cartCount.textContent = cartItems.length;
+    totalPrice.textContent = '₮' + total.toLocaleString();
+    // localStorage-д хадгалах
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartTotal", total);
+  });
+});
+
+// Захиалах товч
+orderBtn.addEventListener("click", ()=>{
+  if(cartItems.length===0){
+    alert("Сагс хоосон байна!");
+    return;
+  }
+  window.location.href = "checkout.html";
+});
+</script>
+
+</body>
+</html>
