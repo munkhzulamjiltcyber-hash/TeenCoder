@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX | The Future of Speed</title>
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary: #00d4ff; /* Electric Blue */
+            --accent: #ff2e63;  /* Racing Red */
+            --bg: #050505;
+            --card-bg: #111111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax Effect */
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .section-title {
+            text-align: center;
+            padding: 80px 0 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+            padding: 0 5%;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(2deg);
+            filter: brightness(0.6);
+        }
+
+        /* --- SPECIFICATIONS GRID --- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #333;
+            margin: 50px 5%;
+            border: 1px solid #333;
+        }
+
+        .spec-box {
+            background: var(--card-bg);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .spec-box h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact {
+            background: #111;
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: black;
+            padding: 15px 40px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            .specs-grid { grid-template-columns: 1fr; }
+            .contact { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Apex</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#specs">Performance</a>
+            <a href="#contact">Inquiry</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Beyond<br><span style="color:var(--primary)">Velocity</span></h1>
+            <p>The ultimate fusion of carbon fiber and raw adrenaline.</p>
+            <a href="#gallery" class="btn">View Collection</a>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="gallery">Design Gallery</h2>
+    <section class="gallery">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800" alt="Sport Car"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800" alt="Sport Car"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800" alt="Sport Car"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611859328053-3cbc9f9399f4?q=80&w=800" alt="Sport Car"></div>
+    </section>
+
+    <h2 class="section-title" id="specs">Technical Prowess</h2>
+    <div class="specs-grid">
+        <div class="spec-box">
+            <h2>1.9s</h2>
+            <p>0-60 MPH</p>
+        </div>
+        <div class="spec-box">
+            <h2>1100</h2>
+            <p>HORSEPOWER</p>
+        </div>
+        <div class="spec-box">
+            <h2>250+</h2>
+            <p>TOP SPEED MPH</p>
+        </div>
+    </div>
+
+    <section id="contact" class="contact">
+        <div>
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">READY TO<br>DRIVE?</h2>
+            <p style="color: #888;">Configure your custom build or book a private track session with our professional drivers.</p>
+        </div>
+        <form>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Send Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 APEX AUTOMOTIVE | PRIVACY POLICY | CAREERS</p>
+    </footer>
+
+</body>
+</html>

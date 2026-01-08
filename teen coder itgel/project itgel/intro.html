@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity | 2025 Supercar Collection</title>
+    <link rel="icon" href="/Users/cyber29/Desktop/teen coder itgel/download.png">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #050505;
+            color: #eee;
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff3e3e;
+            z-index: 1000;
+        }
+        .logo { font-weight: bold; font-size: 24px; color: #ff3e3e; letter-spacing: 2px; }
+        .menu { color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .hero {
+            height: 80vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), #050505),
+                        url('/Users/cyber29/Desktop/teen coder itgel/project itgel/photo/peter-broomfield-m3m-lnR90uM-unsplash (1).jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 { font-size: 4rem; color: #fff; margin: 0; text-transform: uppercase; }
+        .container { padding: 80px 10%; }
+        h2 { font-size: 2.5rem; color: #fff; border-left: 4px solid #ff3e3e; padding-left: 15px; margin-bottom: 30px; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 12px;
+            transition: 0.4s;
+        }
+        .card:hover { 
+            border-color: #ff3e3e; 
+            transform: translateY(-10px);
+            background: #161616;
+        }
+        .card h3 { color: #ff3e3e; margin-top: 0; font-size: 1.5rem; }
+        .card p { color: #aaa; font-size: 0.95rem; }
+        .table-container { overflow-x: auto; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        th { background: #ff3e3e; color: white; padding: 20px; text-align: left; text-transform: uppercase; font-size: 0.8rem; }
+        td { padding: 18px 20px; border-bottom: 1px solid #222; }
+        tr:hover { background: #1a1a1a; }
+        .price-tag { color: #00ff88; font-weight: bold; font-family: 'Courier New', monospace; }
+        footer {
+            text-align: center;
+            padding: 60px;
+            background: #000;
+            border-top: 1px solid #222;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="/Users/cyber29/Desktop/teen coder itgel/sport cars.html">VELOCITY</a></div>
+        <div class="menu">Models | Performance | Contact</div>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <h1>The 2025 Supercars</h1>
+            <p style="font-size: 1.2rem; color: #ccc;">Engineering perfection, delivered to your screen.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Engineering Excellence</h2>
+        <p>Every vehicle in our 2025 collection has been selected for its unique contribution to automotive history. From hybrid powertrains to raw naturally aspirated V8s, these cars represent the pinnacle of speed.</p>
+
+        <div class="feature-grid">
+            <div class="card">
+                <h3>Aerodynamics</h3>
+                <p>Active aero wings and carbon-diffusers that produce over 800lbs of downforce at 150mph.</p>
+            </div>
+            <div class="card">
+                <h3>Lightweight Tech</h3>
+                <p>Monocoque chassis designs using aerospace-grade carbon fiber for maximum rigidity.</p>
+            </div>
+            <div class="card">
+                <h3>Hybrid Power</h3>
+                <p>Instant torque delivery via electric motors combined with high-revving internal combustion.</p>
+            </div>
+        </div>
+
+        <h2>2025 Pricing Guide</h2>
+        <p>Check out the starting MSRP for this year's top performers.</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>0-60 MPH</th>
+                        <th>Top Speed</th>
+                        <th>Price (MSRP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apex Predator GT</td>
+                        <td>2.4s</td>
+                        <td>218 mph</td>
+                        <td class="price-tag">$295,000</td>
+                    </tr>
+                    <tr>
+                        <td>Vortex Spider</td>
+                        <td>2.9s</td>
+                        <td>202 mph</td>
+                        <td class="price-tag">$185,000</td>
+                    </tr>
+                    <tr>
+                        <td>Stratos Hybrid</td>
+                        <td>2.1s</td>
+                        <td>253 mph</td>
+                        <td class="price-tag">$1,200,000</td>
+                    </tr>
+                    <tr>
+                        <td>Neon Drift S</td>
+                        <td>3.1s</td>
+                        <td>195 mph</td>
+                        <td class="price-tag">$98,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 VELOCITY MOTORSPORT HUB</p>
+        <p style="font-size: 12px;">Data provided by Instrumented Testing Lab</p>
+    </footer>
+
+</body>
+</html>

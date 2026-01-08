@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity | Premium Sports Cars</title>
+    <style>
+        :root {
+            --primary: #ff3e3e;
+            --dark: #0f0f0f;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: rgb(255, 255, 255);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85); 
+            backdrop-filter: blur(12px); 
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 62, 62, 0.3);
+            z-index: 3000; 
+        }
+        .logo a { 
+            font-weight: 900; 
+            font-size: 28px; 
+            color: #fff; 
+            text-decoration: none;
+            letter-spacing: 4px; 
+            text-transform: uppercase;
+        }
+        .logo a span { color: var(--primary); }
+        .nav-links { 
+            list-style: none; 
+            display: flex; 
+            gap: 30px; 
+            align-items: center;
+        }
+        .nav-links a { 
+            color: #bbb;
+            text-decoration: none; 
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition); 
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .card-container {
+            display: flex;         
+            justify-content: center; 
+            gap: 40px;          
+            flex-wrap: wrap;      
+            padding: 180px 5% 100px 5%; 
+        }
+        .card {
+            background-color: var(--card-bg);
+            width: 350px; 
+            border-radius: 20px;
+            overflow: hidden;
+            color: var(--text-main); 
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(255, 62, 62, 0.25);
+        }
+        .img-container {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .info-content { padding: 30px; }
+        h2 { 
+            font-size: 26px; 
+            margin-bottom: 8px; 
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .price {
+            color: #16a085;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .info-content p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        .card button {
+            border: none;
+            padding: 16px;
+            color: white;
+            background-color: var(--primary);
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        .card button:hover { 
+            background-color: #000; 
+            letter-spacing: 2px;
+        }
+        footer {
+            background-color: #111;
+            border-top: 1px solid #333;
+            text-align: center;
+            padding: 40px;
+        }
+
+        footer h4 { 
+            color: #888; 
+            font-weight: 400; 
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .card-container { padding-top: 120px; }
+            .card { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="/Users/cyber29/Desktop/teen coder itgel/sport cars.html">VELO<span>CITY</span></a></div>
+        <ul class="nav-links">
+            <li><a href="/Users/cyber29/Desktop/teen coder itgel/project itgel/intro.html">Inventory</a></li>
+            <li><a href="#">Showroom</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" style="color: var(--primary);">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="Porsche 911">
+            </div>
+            <div class="info-content">
+                <h2>Porsche 911 GT3</h2>
+                <span class="price">$161,100</span>
+                <p>The icon of German engineering. Built for the track, refined for the street.</p>
+                <button>Details</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" alt="Ferrari">
+            </div>
+            <div class="info-content">
+                <h2>Ferrari F8</h2>
+                <span class="price">$280,000</span>
+                <p>Pure Italian passion. A tribute to the most powerful V8 in Ferrari history.</p>
+                <button>Details</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800" alt="Corvette">
+            </div>
+            <div class="info-content">
+                <h2>2026 Corvette Z06</h2>
+                <span class="price">$112,000</span>
+                <p>The American Supercar. Mid-engine precision meets raw V8 power.</p>
+                <button>Details</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h4>&copy; 2025 VELOCITY MOTORSPORT HUB | DESIGNED BY ITGEL</h4>
+    </footer>
+
+</body>
+</html> 
