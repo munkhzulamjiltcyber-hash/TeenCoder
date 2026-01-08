@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Blooming Flower Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, rgb(153, 226, 43), #f7d9d9);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        nav {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .signin-container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .signin-form h2 {
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-align: center;
+            font-size: 1.75rem;
+        }
+        .signin-form > p {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        .input-group input[type="email"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-options label {
+            display: flex;
+            align-items: center;
+        }
+        .form-options label input {
+            margin-right: 0.5rem;
+        }
+        .form-options a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-options a:hover {
+            text-decoration: underline;
+        }
+        #form-error {
+            color: #c00;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #ffe6e6;
+            border-radius: 6px;
+        }
+        .signin-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .signin-btn:hover {
+            background-color: #0056b3;
+        }
+        .signup-link {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <div class="signin-container">
+        <form class="signin-form" method="post" action="#" novalidate>
+            <h2>Welcome Back</h2>
+            <p>Please enter your details to sign in</p>
+            
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+            </div>
+            
+            <div class="form-options">
+                <label for="remember"><input type="checkbox" id="remember" name="remember"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            
+            <div id="form-error" role="alert" aria-live="polite" style="display:none;"></div>
+            <button type="submit" class="signin-btn">Sign In</button>
+            
+            <p class="signup-link">Don't have an account? <a href="Sign up.html">Sign up</a></p>
+        </form>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/auth';
+
+        // Form validation and handling
+        const form = document.querySelector('.signin-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const rememberCheckbox = document.getElementById('remember');
+        const formError = document.getElementById('form-error');
+        const submitBtn = document.querySelector('.signin-btn');
+
+        // Load saved email if "Remember me" was previously checked
+        function loadSavedEmail() {
+            const savedEmail = localStorage.getItem('rememberedEmail');
+            if (savedEmail) {
+                emailInput.value = savedEmail;
+                rememberCheckbox.checked = true;
+            }
+            const sessionId = localStorage.getItem('sessionId');
+            if (sessionId) {
+                verifySession(sessionId);
+            }
+        }
+
+        // Validate email format
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Show error message
+        function showError(message) {
+            formError.textContent = message;
+            formError.style.display = 'block';
+        }
+
+        // Hide error message
+        function hideError() {
+            formError.style.display = 'none';
+            formError.textContent = '';
+        }
+
+        // Verify if user already has a valid session
+        async function verifySession(sessionId) {
+            try {
+                const response = await fetch(`${API_URL}/verify`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Redirect to dashboard
+                    setTimeout(() => {
+                        window.location.href = 'Dashboard.html';
+                    }, 500);
+                } else {
+                    localStorage.removeItem('sessionId');
+                }
+            } catch (error) {
+                console.log('Session check: no active session');
+            }
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideError();
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            // Client-side validation
+            if (!email) {
+                showError('Please enter your email address.');
+                emailInput.focus();
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address (e.g., user@example.com).');
+                emailInput.focus();
+                return;
+            }
+
+            if (!password) {
+                showError('Please enter your password.');
+                passwordInput.focus();
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters long.');
+                passwordInput.focus();
+                return;
+            }
+
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Signing in...';
+            submitBtn.disabled = true;
+
+            try {
+                // Send sign-in request to backend
+                const response = await fetch(`${API_URL}/signin`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Save session ID
+                    localStorage.setItem('sessionId', data.sessionId);
+                    localStorage.setItem('userName', data.user.name);
+
+                    // Save email if "Remember me" is checked
+                    if (rememberCheckbox.checked) {
+                        localStorage.setItem('rememberedEmail', email);
+                    } else {
+                        localStorage.removeItem('rememberedEmail');
+                    }
+
+                    // Show success and redirect
+                    hideError();
+                    showError(`✓ Welcome back, ${data.user.name}!`);
+                    formError.style.color = '#28a745';
+                    formError.style.backgroundColor = '#d4edda';
+                    formError.style.borderColor = '#c3e6cb';
+
+                    setTimeout(() => {
+                        window.location.href = 'Dashboard.html';
+                    }, 1500);
+                } else {
+                    showError(data.message || 'Sign in failed. Please try again.');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Connection error. Make sure the server is running on http://localhost:3000');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Clear error on input focus
+        emailInput.addEventListener('focus', hideError);
+        passwordInput.addEventListener('focus', hideError);
+
+        // Load saved data on page load
+        window.addEventListener('load', loadSavedEmail);
+    </script>
+</body>
+</html>

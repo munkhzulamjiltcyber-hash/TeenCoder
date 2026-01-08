@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Blooming Flower Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, rgb(153, 226, 43), #f7d9d9);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        nav {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .signup-container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .signup-form h2 {
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-align: center;
+            font-size: 1.75rem;
+        }
+        .signup-form > p {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        #form-message {
+            color: #c00;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #ffe6e6;
+            border-radius: 6px;
+        }
+        .signup-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .signup-btn:hover {
+            background-color: #218838;
+        }
+        .signup-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .signin-link {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .signin-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <div class="signup-container">
+        <form class="signup-form" method="post">
+            <h2>Create Account</h2>
+            <p>Join our flower community</p>
+            
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password (min 6 characters)" required autocomplete="new-password">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+            </div>
+            
+            <div id="form-message" role="alert" aria-live="polite" style="display:none;"></div>
+            <button type="submit" class="signup-btn">Create Account</button>
+            
+            <p class="signin-link">Already have an account? <a href="Sign in.html">Sign in</a></p>
+        </form>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/auth';
+
+        const form = document.querySelector('.signup-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const formMessage = document.getElementById('form-message');
+        const submitBtn = document.querySelector('.signup-btn');
+
+        // Validate email format
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Show message
+        function showMessage(message, isSuccess = false) {
+            formMessage.textContent = isSuccess ? '✓ ' + message : message;
+            formMessage.style.display = 'block';
+            formMessage.style.color = isSuccess ? '#28a745' : '#c00';
+            formMessage.style.backgroundColor = isSuccess ? '#d4edda' : '#ffe6e6';
+        }
+
+        // Hide message
+        function hideMessage() {
+            formMessage.style.display = 'none';
+            formMessage.textContent = '';
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideMessage();
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const confirmPassword = confirmPasswordInput.value.trim();
+
+            // Validation checks
+            if (!name) {
+                showMessage('Please enter your full name.');
+                nameInput.focus();
+                return;
+            }
+
+            if (!email) {
+                showMessage('Please enter your email address.');
+                emailInput.focus();
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showMessage('Please enter a valid email address (e.g., user@example.com).');
+                emailInput.focus();
+                return;
+            }
+
+            if (!password) {
+                showMessage('Please enter a password.');
+                passwordInput.focus();
+                return;
+            }
+
+            if (password.length < 6) {
+                showMessage('Password must be at least 6 characters long.');
+                passwordInput.focus();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match.');
+                confirmPasswordInput.focus();
+                return;
+            }
+
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Creating Account...';
+            submitBtn.disabled = true;
+
+            try {
+                // Send sign-up request to backend
+                const response = await fetch(`${API_URL}/signup`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage(data.message, true);
+                    
+                    // Clear form and redirect to sign-in after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'Sign in.html';
+                    }, 2000);
+                } else {
+                    showMessage(data.message || 'Sign up failed. Please try again.');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Connection error. Make sure the server is running on http://localhost:3000');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Clear error on input focus
+        nameInput.addEventListener('focus', hideMessage);
+        emailInput.addEventListener('focus', hideMessage);
+        passwordInput.addEventListener('focus', hideMessage);
+        confirmPasswordInput.addEventListener('focus', hideMessage);
+    </script>
+</body>
+</html>

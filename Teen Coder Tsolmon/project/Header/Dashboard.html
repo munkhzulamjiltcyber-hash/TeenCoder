@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Blooming Flower Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff8f5;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, rgb(153, 226, 43), #f7d9d9);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 1.75rem;
+            color: white;
+            margin: 0;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .user-info {
+            color: white;
+            text-align: right;
+        }
+        .user-info p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .user-info strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+        .logout-btn {
+            background-color: #c94c4c;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #a63b3b;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .welcome-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .welcome-section h2 {
+            color: #a83250;
+            margin-bottom: 1rem;
+        }
+        .orders-section, .profile-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .orders-section h3, .profile-section h3 {
+            color: #a83250;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #a83250;
+            padding-bottom: 0.5rem;
+        }
+        .order-item {
+            padding: 1rem;
+            border-left: 4px solid #a83250;
+            background: #f9f9f9;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        .order-item strong {
+            color: #333;
+        }
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .profile-field {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+        .profile-field label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .profile-field p {
+            margin: 0;
+            color: #333;
+        }
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .quick-link {
+            background: linear-gradient(135deg, rgb(153, 226, 43), #f7d9d9);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .quick-link:hover {
+            transform: translateY(-5px);
+        }
+        .not-authenticated {
+            background: #ffe6e6;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            color: #c00;
+        }
+        .not-authenticated a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .not-authenticated a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌸 Blooming Flower Shop</h1>
+        <div class="header-right">
+            <div class="user-info" id="user-info">
+                <strong id="user-name">Loading...</strong>
+                <p id="user-email"></p>
+            </div>
+            <button class="logout-btn" id="logout-btn">Sign Out</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="authenticated-content" style="display: none;">
+            <div class="welcome-section">
+                <h2>Welcome back, <span id="welcome-name">Guest</span>! 🌷</h2>
+                <p>Thank you for being part of our flower shop community. Browse our latest collections and don't forget to check out our special offers!</p>
+            </div>
+
+            <div class="quick-links">
+                <a href="Home.html" class="quick-link">Home</a>
+                <a href="Menu.html" class="quick-link">Shop Flowers</a>
+                <a href="Contact.html" class="quick-link">Contact Us</a>
+            </div>
+
+            <div class="orders-section">
+                <h3>Recent Orders</h3>
+                <p style="color: #999;">No orders yet. Visit our <a href="Menu.html" style="color: #007bff;">shop</a> to place your first order!</p>
+            </div>
+
+            <div class="profile-section">
+                <h3>Profile Information</h3>
+                <div class="profile-info">
+                    <div class="profile-field">
+                        <label>Name</label>
+                        <p id="profile-name">-</p>
+                    </div>
+                    <div class="profile-field">
+                        <label>Email</label>
+                        <p id="profile-email">-</p>
+                    </div>
+                    <div class="profile-field">
+                        <label>Member Since</label>
+                        <p id="profile-date">-</p>
+                    </div>
+                    <div class="profile-field">
+                        <label>Account Status</label>
+                        <p style="color: #28a745; font-weight: bold;">Active</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="not-authenticated" class="not-authenticated">
+            <h2>Not Signed In</h2>
+            <p>Please <a href="Sign in.html">sign in</a> to view your dashboard or <a href="Sign up.html">create an account</a>.</p>
+        </div>
+    </main>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/auth';
+        const sessionId = localStorage.getItem('sessionId');
+        const userName = localStorage.getItem('userName');
+
+        const authenticatedContent = document.getElementById('authenticated-content');
+        const notAuthenticatedContent = document.getElementById('not-authenticated');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Check authentication status
+        async function checkAuth() {
+            if (!sessionId) {
+                showNotAuthenticated();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/verify`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAuthenticated(data.user);
+                } else {
+                    localStorage.removeItem('sessionId');
+                    showNotAuthenticated();
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                // Show authenticated view even if server is down (graceful fallback)
+                if (userName) {
+                    showAuthenticatedOffline();
+                } else {
+                    showNotAuthenticated();
+                }
+            }
+        }
+
+        // Show authenticated content
+        function showAuthenticated(user) {
+            authenticatedContent.style.display = 'block';
+            notAuthenticatedContent.style.display = 'none';
+
+            // Update user info in header
+            document.getElementById('user-name').textContent = user.name;
+            document.getElementById('user-email').textContent = user.email;
+
+            // Update welcome section
+            document.getElementById('welcome-name').textContent = user.name.split(' ')[0];
+
+            // Update profile section
+            document.getElementById('profile-name').textContent = user.name;
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('profile-date').textContent = new Date().toLocaleDateString();
+        }
+
+        // Show authenticated offline (from localStorage)
+        function showAuthenticatedOffline() {
+            authenticatedContent.style.display = 'block';
+            notAuthenticatedContent.style.display = 'none';
+
+            document.getElementById('user-name').textContent = userName || 'User';
+            document.getElementById('welcome-name').textContent = (userName || 'User').split(' ')[0];
+            document.getElementById('profile-name').textContent = userName || '-';
+        }
+
+        // Show not authenticated content
+        function showNotAuthenticated() {
+            authenticatedContent.style.display = 'none';
+            notAuthenticatedContent.style.display = 'block';
+        }
+
+        // Handle logout
+        logoutBtn.addEventListener('click', async function() {
+            const sessionId = localStorage.getItem('sessionId');
+
+            try {
+                // Notify server of logout
+                if (sessionId) {
+                    await fetch(`${API_URL}/signout`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ sessionId })
+                    });
+                }
+            } catch (error) {
+                console.log('Logout notification failed, but clearing local storage');
+            }
+
+            // Clear local storage
+            localStorage.removeItem('sessionId');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('rememberedEmail');
+
+            // Redirect to home
+            window.location.href = 'Home.html';
+        });
+
+        // Check authentication on page load
+        window.addEventListener('load', checkAuth);
+    </script>
+</body>
+</html>
