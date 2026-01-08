@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Login with Moving Car</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        width: 100%;
+        background-color: rgb(119, 119, 119);
+        padding: 10px 20px;
+    }
+
+    .Menu {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 10px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+    .Menu:hover {
+        background-color: rgb(119, 119, 119);
+        color: white;
+    }
+
+    .login-box {
+        background-color: rgb(119, 119, 119);
+        padding: 30px;
+        width: 320px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px black;
+        margin: 40px auto 20px auto;
+    }
+
+    .login-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: black;
+    }
+
+    .login-box input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .login-box button {
+        width: 100%;
+        padding: 10px;
+        background: white;
+        border: 1px solid rgb(119, 119, 119);
+        color: rgb(119, 119, 119);
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .login-box button:hover {
+        background: rgb(119, 119, 119);
+        color: white;
+    }
+
+    .login-box .text {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 13px;
+    }
+
+    .login-box .text a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .login-box .text a:hover {
+        text-decoration: underline;
+    }
+
+   
+    .car-container {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        margin: 20px auto;
+        overflow: hidden;
+        background: #eee;
+        border-radius: 10px;
+    }
+
+    #car {
+        position: absolute;
+        bottom: 10px;
+        left: -120px; 
+        height: 60px;
+        transition: left 0.1s linear;
+    }
+
+    footer {
+        background-color: rgb(106, 106, 106);
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/Users/cyber22/Desktop/Teencoder serod/Home.html" class="Menu">Home</a>
+    </nav>
+</header>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="text">
+        <p><a href="#">Not registered?</a></p>
+    </div>
+</div>
+
+<div class="car-container">
+    <img id="car" src="/Users/cyber22/Desktop/Teencoder serod/filters_format(avif) (3).avif" alt="Porsche Car">
+</div>
+
+<footer>
+    <p>© 2026 Porsche Asia Pacific Pte Ltd</p>
+</footer>
+
+<script>
+    const car = document.getElementById("car");
+    let pos = -120; 
+
+    function moveCar() {
+        pos += 5; 
+        if(pos > window.innerWidth) pos = -120; 
+        car.style.left = pos + "px";
+        requestAnimationFrame(moveCar); 
+    }
+
+    moveCar();
+</script>
+
+</body>
+</html>

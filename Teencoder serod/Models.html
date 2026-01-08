@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Models</title>
+    <style>
+        body {
+            background: white;
+            font-family: Arial, sans-serif;
+            color: black;
+            margin: 0;
+        }
+
+        header {
+            background-color: rgb(119, 119, 119);
+            text-align: left;
+            padding: 10px;
+        }
+
+        .Menu {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .Menu:hover {
+            background-color: rgb(119, 119, 119);
+        }
+
+        .title {
+            margin: 20px;
+        }
+
+        .car-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .car-card {
+            text-align: center;
+            perspective: 1000px; /* 3D effect */
+        }
+
+        .car-card img {
+            width: 100%;
+            max-width: 850px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform-style: preserve-3d;
+        }
+
+        .car-card h3 {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .price {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: rgb(120, 120, 120);
+            text-align: center;
+            color: black;
+           
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/Users/cyber22/Desktop/Teencoder serod/Home.html" class="Menu">Home</a>
+    </nav>
+</header>
+
+<h2 class="title">Volkswagen Group</h2>
+<div class="car-container">
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/filters_format(avif).avif">
+        <h3>718</h3>
+        <p class="price">$75,400</p>
+    </div>
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/5D0BB7E042BD4C9DBEF84B5E70482520_73AA748306934B0C9CE20E32231DFCE2_CZ25W01IX0011911-carrera-front.avif">
+        <h3>911</h3>
+        <p class="price">$120,100</p>
+    </div>
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/filters_format(avif) (1).avif">
+        <h3>Taycan</h3>
+        <p class="price">$103,300+</p>
+    </div>
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/2175383C00134D77B37BA93DEA83A1C6_9FCB4E715FCA45A2A5D96752B79B590D_045-model-technical-highlights-1600x1125_dark.avif">
+        <h3>Panamera</h3>
+        <p class="price">$102,800</p>
+    </div>
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/EE94DECAE29C4005967F7984342120BC_C8514960D46A48269324CD75875A5CAA_cayenne-front.avif">
+        <h3>Cayenne</h3>
+        <p class="price">$102,800+</p>
+    </div>
+
+    <div class="car-card">
+        <img src="/Users/cyber22/Desktop/Teencoder serod/filters_format(avif) (2).avif">
+        <h3>Macan</h3>
+        <p class="price">$66,500</p>
+    </div>
+
+</div>
+
+<script>
+const cards = document.querySelectorAll('.car-card img');
+
+cards.forEach(card => {
+    let rotateX = 0, rotateY = 0;
+    let targetX = 0, targetY = 0;
+
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+
+        const mouseX = (e.clientX - rect.left - cx) / cx; 
+        const mouseY = (e.clientY - rect.top - cy) / cy;
+
+        targetX = mouseY * 10; // rotationX
+        targetY = mouseX * 10; // rotationY
+    });
+
+    card.addEventListener('mouseleave', () => {
+        targetX = 0;
+        targetY = 0;
+    });
+
+    function animate() {
+        rotateX += (targetX - rotateX) * 0.1;
+        rotateY += (targetY - rotateY) * 0.1;
+
+        card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(${targetX || targetY ? 1.07 : 1})`;
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
+</script>
+<footer style="background-color: rgb(119, 119, 119);text-align: center; color: black;">
+          <p>© 2026 Porsche Asia Pacific Pte Ltd</p>
+      </footer>
+
+</body>
+</html>

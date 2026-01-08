@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Tires</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        header {
+            background: rgb(119,119,119);
+            padding: 10px;
+        }
+
+        .Menu {
+            display: inline-block;
+            padding: 12px 20px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .Menu:hover {
+            background: #777;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .tires-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 30px;
+            justify-items: center;
+        }
+
+        .tires-card {
+            text-align: center;
+            perspective: 900px;
+        }
+
+        .tires-card img {
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tires-card p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .tires-card:hover img {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            background: rgb(119,119,119);
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="Home.html" class="Menu">Home</a>
+</header>
+
+<h1>Tires</h1>
+
+<div class="tires-container">
+    <div class="tires-card">
+        <img src="studio_66E.jpg">
+        <p>21inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66I.jpg">
+        <p>21inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66H.jpg">
+        <p>20inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66I.jpg">
+        <p>20inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66K.jpg">
+        <p>21inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66L.jpg">
+        <p>20inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66T.jpg">
+        <p>20inch</p>
+    </div>
+    <div class="tires-card">
+        <img src="studio_66D.jpg">
+        <p>21inch</p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Porsche Asia Pacific Pte Ltd</p>
+</footer>
+
+<script>
+    const cards = document.querySelectorAll('.tires-card img');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+
+            const dx = (x - cx) / cx;
+            const dy = (y - cy) / cy;
+
+            card.style.transform =
+                `rotateY(${dx * 10}deg) rotateX(${-dy * 10}deg) scale(1.07)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+        });
+    });
+</script>
+
+</body>
+</html>
