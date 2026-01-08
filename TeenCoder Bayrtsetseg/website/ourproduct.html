@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online ordering</title>
+    </head>
+    <style>
+        body {
+            background-color: rgb(234, 221, 205);
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .menu {
+            color: rgb(247, 242, 242);
+            text-decoration: rgb(94, 151, 200);
+            margin-left: 50px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border-radius: 12px;
+        }
+        .menu-hover {
+            background-color: rgb(16, 52, 102);
+        }
+        .title {
+            color: rgb(0, 0, 0);
+            margin: 20px;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        .product-card {
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            max-width: 180px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 2px solid;
+            box-shadow: 0 10px 25px rgb(52, 52, 52);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 15px 35px rgb(40, 40, 40);
+        }
+        .product-card h3 {
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .price {
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .img {
+            width: 150px;
+            height: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .a {
+            background-color: #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: wavy;
+            text-align: left;
+            color: rgb(255, 255, 255);
+        }
+        .logo {
+            width: 150px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+    <header class="a">
+        <nav aria-label="Huudas">
+            <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/logo2.jpg" alt="logo" class="logo"></img>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/home.html" class="menu">Home</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/ourproduct.html" class="menu">Products</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/blog.html" class="menu">Feedback</a>
+        </nav>
+    </header>
+    <body>
+        <h2 class="title">Drinks</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/hot latte.jpg" alt="hot latte"></img>
+                <h3>Hot latte</h3>
+                <p class="price">5$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/iced latte.webp" alt="ice latte"></img>
+                <h3>Ice latte</h3>
+                <p class="price">5$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/hotameri.jpeg" alt="hot americano"></img>
+                <h3>Hot americano</h3>
+                <p class="price">4$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/iced ameri.jpg" alt="ice americano"></img>
+                <h3>Ice americano</h3>
+                <p class="price">4.5$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/espresso.webp" alt="espresso"></img>
+                <h3>Espresso</h3>
+                <p class="price">2.9$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/hotchoco.jpg" alt="hot chocolate"></img>
+                <h3>Hot chocolate</h3>
+                <p class="price">5$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/tea.jpeg" alt="tea"></img>
+                <h3>Tea</h3>
+                <p class="price">2.5$</p>
+            </div>
+        </div>
+        <h2 class="title">Cakes</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/chocolate.jpg" alt="chocolate cake"></img>
+                <h3>Chocolate cake</h3>
+                <p class="price">30$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/vanilla.webp" alt="vanilla cake"></img>
+                <h3>Vanilla cake</h3>
+                <p class="price">26$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/redvelvet.jpg" alt="red velvet cake"></img>
+                <h3>Red velvet cake</h3>
+                <p class="price">37$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/Cheesecake.webp" alt="cheesecake"></img>
+                <h3>Cheesecake</h3>
+                <p class="price">28$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/jello.jpg" alt="jellocake"></img>
+                <h3>Strawberry jello cake</h3>
+                <p class="price">25$</p>
+            </div>
+        </div>
+        <h2 class="title">Breakfast</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/sandwich.jpeg" alt="sandwich"></img>
+                <h3>Sandwich</h3>
+                <p class="price">5$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/eggtoast.jpeg" alt="eggtoast"></img>
+                <h3>Eggtoast</h3>
+                <p class="price">3$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/breakfast.jpeg" alt="breakfast bowl"></img>
+                <h3>Breakfast bowl</h3>
+                <p class="price">6$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/croissant.jpg" alt="croissant"></img>
+                <h3>Croissant</h3>
+                <p class="price">5$</p>
+            </div>
+        </div>
+        <h2 class="title">Desserts</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/cookie.jpeg" alt="cookie"></img>
+                <h3>Cookie</h3>
+                <p class="price">2$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/chococup.jpeg" alt="chocolate cupcake"></img>
+                <h3>Chocolate cupcake</h3>
+                <p class="price">2$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/vanilcup.jpeg" alt="vanilla cupcake"></img>
+                <h3>Vanilla cupcake</h3>
+                <p class="price">2$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/brownie.jpeg" alt="brownie"></img>
+                <h3>Brownie</h3>
+                <p class="price">3$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/pudding.jpeg" alt="pudding"></img>
+                <h3>Pudding</h3>
+                <p class="price">3$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/custard.jpg" alt="custard"></img>
+                <h3>Custard</h3>
+                <p class="price">3$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/churro.jpeg" alt="churro"></img>
+                <h3>Churro</h3>
+                <p class="price">6$</p>
+            </div>
+            <div class="product-card">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/parfait.jpeg" alt="parfait"></img>
+                <h3>Parfait</h3>
+                <p class="price">5$</p>
+            </div>
+        </div>
+    </body>
+    <footer style="background-color: black;">
+        <p style="color: white;text-align: center;">Fresh Coffee, Fresh Start</p>
+        <nav aria-label="Хуудас">
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/home.html" class="menu">Home</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/ourproduct.html" class="menu">Ordering</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/blog.html" class="menu">Feedbacks</a>
+        </nav>
+    </footer>
+</html>

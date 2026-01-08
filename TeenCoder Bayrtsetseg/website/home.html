@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Roast & Toast</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .text-block {
+            position: absolute;
+            border-radius: 4px;
+            top: 40px;
+            left: 20px;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        body {
+            background-color: rgb(234, 221, 205);
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .menu {
+            color: rgb(247, 242, 242);
+            text-decoration: rgb(94, 151, 200);
+            margin-left: 50px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border-radius: 12px;
+        }
+        .menu-hover {
+            background-color: rgb(16, 52, 102);
+        }
+        .a {
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: wavy;
+            text-align: left;
+            color: rgb(255, 255, 255);
+        }
+        .hero {
+            background-image: center/cover no-repeat;
+            width: 1176px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-left: 12px;
+            margin-right: 10px;
+        }
+        .para {
+            border: 1px transparent;
+            background-color: rgba(234, 221, 205, 0.47);
+            text-decoration-color: rgb(0, 0, 0);
+            margin-right: 700px;
+            padding: 30px;
+        }
+        .design {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        .interior {
+            text-align: center;
+        }
+        .interior img {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            object-fit: fill;
+            border-radius: 6px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .line {
+            color: black;
+            padding: 20px;
+        } 
+        .logo {
+            width: 150px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+    <header class="a">
+        <nav aria-label="Huudas">
+            <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/logo2.jpg" alt="logo" class="logo"></img>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/home.html" class="menu">Home</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/ourproduct.html" class="menu">Products</a>
+            <a href="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/website/blog.html" class="menu">Feedback</a>
+        </nav>
+    </header>
+    <body>
+        <div class="container">
+            <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/cafe.jpeg" alt="background" class="hero"></img>
+            <div class="text-block">
+                <h1 class="para">Roast & Toast Café</h1>
+                <p class="para">Baking has been carried out almost continuously for over 160 years. The bakery was built in the early 1850s and altered to its present appearance in 1868. We bake onsite daily using premium, locally sourced ingredients including free range eggs, flour, vegetables, dairy and meats</p>
+            </div>
+        </div>
+        <hr style="height: 1px;border-width: 0;color: black; background-color: black;">
+        <p class="line">Our coffee is a house blend, developed and roasted in partnership with our friends Ozone, and many of the handcrafted items from our bakeries—such as ceramics, linens, and glassware—are available through our homewares brand, Lovely Home.</p>
+        <hr style="height: 1px;border-width: 0;color: black; background-color: black;">
+        <div class="design">
+            <div class="interior">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/interior1.jpeg" alt="interior"></img>
+            </div>
+            <div class="interior">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/bread.jpeg" alt="bread"></img>
+            </div>
+            <div class="interior">
+                <img src="/Users/cyber19/Desktop/TeenCoder Bayrtsetseg/image/exterior1.jpeg" alt="exterior"></img>
+            </div>
+        </div>
+    </body>
+    <footer class="a">
+        <p style="color: white;text-align: center;">Fresh Coffee, Fresh Start</p>
+    </footer>
+</html>
